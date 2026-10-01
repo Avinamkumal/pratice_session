@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food House | Online Menu</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <div class="logo">🍴 Food House</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <button onclick="openCart()">🛒 Cart <span id="cart-count">0</span></button>
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+
+    <section class="hero" id="home">
+
+        <div>
+            <h1>Delicious Food<br>Delivered To You</h1>
+
+            <p>
+                Fresh food, great taste and fast service.
+            </p>
+
+            <a href="#menu" class="hero-button">
+                View Menu
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- Menu -->
+
+    <section id="menu">
+
+        <h2>Our Menu</h2>
+
+        <div class="categories">
+
+            <button onclick="filterMenu('all')">
+                All
+            </button>
+
+            <button onclick="filterMenu('pizza')">
+                Pizza
+            </button>
+
+            <button onclick="filterMenu('burger')">
+                Burgers
+            </button>
+
+            <button onclick="filterMenu('momo')">
+                Momo
+            </button>
+
+            <button onclick="filterMenu('drink')">
+                Drinks
+            </button>
+
+        </div>
+
+
+        <div class="menu-container">
+
+            <!-- Pizza -->
+
+            <div class="food-card pizza">
+
+                <div class="food-image">🍕</div>
+
+                <h3>Chicken Pizza</h3>
+
+                <p>
+                    Chicken, cheese, tomato sauce
+                </p>
+
+                <h4>Rs. 550</h4>
+
+                <button onclick="addToCart('Chicken Pizza', 550)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="food-card pizza">
+
+                <div class="food-image">🍕</div>
+
+                <h3>Cheese Pizza</h3>
+
+                <p>
+                    Extra cheese and tomato sauce
+                </p>
+
+                <h4>Rs. 500</h4>
+
+                <button onclick="addToCart('Cheese Pizza', 500)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Burgers -->
+
+            <div class="food-card burger">
+
+                <div class="food-image">🍔</div>
+
+                <h3>Chicken Burger</h3>
+
+                <p>
+                    Crispy chicken, cheese and sauce
+                </p>
+
+                <h4>Rs. 300</h4>
+
+                <button onclick="addToCart('Chicken Burger', 300)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="food-card burger">
+
+                <div class="food-image">🍔</div>
+
+                <h3>Cheese Burger</h3>
+
+                <p>
+                    Beef patty, cheese and vegetables
+                </p>
+
+                <h4>Rs. 350</h4>
+
+                <button onclick="addToCart('Cheese Burger', 350)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Momo -->
+
+            <div class="food-card momo">
+
+                <div class="food-image">🥟</div>
+
+                <h3>Chicken Momo</h3>
+
+                <p>
+                    Steamed chicken dumplings
+                </p>
+
+                <h4>Rs. 180</h4>
+
+                <button onclick="addToCart('Chicken Momo', 180)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="food-card momo">
+
+                <div class="food-image">🥟</div>
+
+                <h3>Buff Momo</h3>
+
+                <p>
+                    Juicy buff dumplings
+                </p>
+
+                <h4>Rs. 200</h4>
+
+                <button onclick="addToCart('Buff Momo', 200)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- Drinks -->
+
+            <div class="food-card drink">
+
+                <div class="food-image">🥤</div>
+
+                <h3>Coke</h3>
+
+                <p>
+                    Cold refreshing Coca-Cola
+                </p>
+
+                <h4>Rs. 100</h4>
+
+                <button onclick="addToCart('Coke', 100)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="food-card drink">
+
+                <div class="food-image">🍹</div>
+
+                <h3>Lemonade</h3>
+
+                <p>
+                    Fresh homemade lemonade
+                </p>
+
+                <h4>Rs. 150</h4>
+
+                <button onclick="addToCart('Lemonade', 150)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section id="about" class="about">
+
+        <h2>About Food House</h2>
+
+        <p>
+            Food House is a simple restaurant serving fresh,
+            delicious and affordable food in Kathmandu.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>🍴 Food House</h3>
+
+        <p>Kathmandu, Nepal</p>
+
+        <p>📞 9800000000</p>
+
+        <p>© 2026 Food House</p>
+
+    </footer>
+
+
+    <!-- Cart -->
+
+    <div id="cart" class="cart">
+
+        <div class="cart-box">
+
+            <button class="close" onclick="closeCart()">
+                ✕
+            </button>
+
+            <h2>Your Cart</h2>
+
+            <div id="cart-items"></div>
+
+            <hr>
+
+            <h3>
+                Total: Rs. <span id="total">0</span>
+            </h3>
+
+            <button class="checkout" onclick="checkout()">
+                Place Order
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
